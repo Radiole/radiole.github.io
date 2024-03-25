@@ -27,6 +27,7 @@ RNG.prototype.choice = function(array) {
 
 var today;
 var guesses = 0;
+var daily = false;
 
 const seenTutorial = document.cookie
     .split('; ')
@@ -46,17 +47,12 @@ const playedToday = document.cookie
     .find((row) => row.startsWith('playedToday='))
     ?.split('=')[1];
 
-if (playedToday) {
+if (playedToday === 'true') {
     today = SONGS[Math.floor(Math.random() * SONGS.length)];
 } else {
-    var currentDate, epochDate;
-    currentDate = new Date();
-    var epochDate = new Date(new Date().getTime() / 1000);
-    var res = Math.abs(currentDate - epochDate) / 1000;
-    var diff = Math.floor(res / 86400);
-
-    let rng = new RNG(diff);
+    let rng = new RNG(Math.floor(new Date() / 8.64e7));
     today = rng.choice(SONGS);
+    daily = true;
 }
 
 
@@ -129,7 +125,7 @@ function guess(title) {
 
         document.getElementById('correct').style.display = 'block';
         document.getElementById('correctorno').innerHTML = 'Correct';
-        document.getElementById('correctTitle').innerHTML = today.title;
+        document.getElementById('correctTitle').innerHTML = today.title + (daily ? '<br>(Daily Song)' : '');
         document.getElementById('correctImg').src = COVERS[today.album];
         
         let tommorow = new Date();
