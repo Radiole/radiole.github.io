@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Madimi+One">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <script src="jquery-3.7.1.min.js"></script>
+        <script src="songs.js"></script>
+        <script src="main.js" defer></script>
+    
+        <title>Radiole</title>
+    </head>
+    <body>
+        <h1>Radiole</h1>
+        
+        <div class="flex">
+            <input id="searchbar" class="border" type="search" placeholder="Enter Any Radiohead Song..." autofocus autocomplete="off" oninput="search(this)">
+        </div>
+        
+        <div class="flex">
+            <div id="search" class="border"></div>
+        </div>
+        
+        <table id="guesses" class="centre border">
+            <tr>
+                <th>Track No.</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th>Length</th>
+            </tr>
+        </table>
+
+        <div id="correct" class="border centre">
+            <h2 id="correctorno">Correct</h2>
+            <img id="correctImg" src="">
+            <h3 id="correctTitle"></h3>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+        
+        <footer id="howtoplay" class="border">
+            <h2>How to Play</h2>
+            <ol>
+                <li>Try to guess the Radiohead Song in 6 guesses</li>
+                <li>Studio Albums Only</li>
+                <li><span class="green">Green</span> in any column means a complete match</li>
+                <li><span class="yellow">Yellow</span> in any column means a close match</li>
+                <ol type="A">
+                    <li><b>Track No.</b> within 3 songs</li>
+                    <li><b>Album</b> within 2 albums</li>
+                    <li><b>Length</b> within 30 seconds</li>
+                </ol>
+                <li>Arrows pointing Up<span class="up"></span> means the column's value is too low</li>
+                <li>Arrows pointing Down<span class="down"></span> means the column's value is too high</li>
+            </ol>
+            <button onclick="this.parentNode.style.display = 'none';
+                document.getElementById('revealhowtoplay').style.display = 'block';
+                document.cookie = 'seenTutorial=true'">
+                Close</button>
+        </footer>
+
+        <footer>
+            <button id="revealhowtoplay" onclick="this.style.display = 'none';
+                document.getElementById('howtoplay').style.display = 'block'">
+                How to Play</button>
+        </footer>
+    </body>
+</html>
