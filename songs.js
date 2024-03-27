@@ -93,8 +93,8 @@ const SONGS = [
     { no: 3, title: 'Little By Little',  album: 7, length: 267 },
     { no: 4, title: 'Feral',             album: 7, length: 193 },
     { no: 5, title: 'Lotus Flower',      album: 7, length: 301 },
-    { no: 6, title: 'Give Up The Ghost', album: 7, length: 287 },
-    { no: 7, title: 'Codex',             album: 7, length: 290 },
+    { no: 6, title: 'Codex',             album: 7, length: 290 },
+    { no: 7, title: 'Give Up The Ghost', album: 7, length: 287 },
     { no: 8, title: 'Seperator',         album: 7, length: 320 },
 
     { no: 1,  title: "Burn The Witch",                album: 8, length: 220 },
