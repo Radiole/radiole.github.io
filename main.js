@@ -133,6 +133,8 @@ function guess(title) {
         document.cookie = 'playedToday=true;expires=' + tommorow.toUTCString();
     } else {
         guesses += 1;
+        document.getElementById('searchbar').placeholder = `Guess (${guesses + 1}/6)`;
+
         if (guesses >= 6) {
             $('#searchbar').parent().hide();
             $('#search').parent().hide();
@@ -143,7 +145,7 @@ function guess(title) {
             $('#searchbar').parent().hide();
 
             document.getElementById('correct').style.display = 'block';
-            document.getElementById('correctorno').innerHTML = 'You Failed';
+            document.getElementById('correctorno').innerHTML = 'Game Over';
             document.getElementById('correctTitle').innerHTML = today.title;
             document.getElementById('correctImg').src = COVERS[today.album];
         }
