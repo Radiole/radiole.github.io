@@ -128,9 +128,11 @@ function guess(title) {
         document.getElementById('correctTitle').innerHTML = today.title + (daily ? '<br>(Daily Song)' : '');
         document.getElementById('correctImg').src = COVERS[today.album];
         
-        let tommorow = new Date();
-        tommorow.setDate(new Date().getDate() + 1);
-        document.cookie = 'playedToday=true;expires=' + tommorow.toUTCString();
+        if (daily) {
+            let tommorow = new Date();
+            tommorow.setDate(new Date().getDate() + 1);
+            document.cookie = 'playedToday=true;expires=' + tommorow.toUTCString();
+        }
     } else {
         guesses += 1;
         document.getElementById('searchbar').placeholder = `Guess (${guesses + 1}/6)`;
